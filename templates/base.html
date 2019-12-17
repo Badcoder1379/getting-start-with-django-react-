@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+
+</head>
+<body style="background-color: whitesmoke">
+
+<div id="navbar">
+
+
+    <div class="ui inverted segment">
+        <div class="ui inverted secondary menu" style="font-size: 20px;">
+            <div class="left menu">
+                {% if not request.user.is_authenticated %}
+                    <a class="item" id="register">ثبت نام</a>
+                {% endif %}
+
+                {% if not request.user.is_authenticated %}
+                    <a class="item" id="login">ورود</a>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                    <a class="item" id="profile" >پروفایل کاربر</a>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                    <a class="item" id="panel" >">پنل کاربر</a>
+                {% endif %}
+
+
+                {% if request.user.is_authenticated %}
+                    <a class="item" id="logout" >خروج</a>
+                {% endif %}
+
+            </div>
+
+            <div class="right menu">
+                <a class="item" id="homepage">صفحه اصلی</a>
+                <a class="item" id="contact_us">تماس با ما</a>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+{% block navbar %}
+{% endblock %}
+
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html>
